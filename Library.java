@@ -7,24 +7,35 @@ import java.util.Hashtable;
  */
 public class Library extends Building {
     private Hashtable<String, Boolean> collection;
+    private boolean hasElevator;
 
     /**
      * Constructor for the library class
      * @param name
      * @param address
      * @param nFloors
+     * @param hasElevator
      */
-    public Library(String name, String address, int nFloors) {
+    public Library(String name, String address, int nFloors, boolean hasElevator) {
       super(name, address, nFloors);
       this.collection = new Hashtable<String, Boolean>();
+      this.hasElevator = hasElevator;
       System.out.println("You have built a library: 📖");
     }
   
     /**
+    * Getter for hasElevator
+    * @return if the house has elevator (T/F)
+    */
+    public boolean hasElevator() {
+      return this.hasElevator;
+    }
+    
+    /**
      * Adds book title to the book collection
      * @param title
      */
-    public void addTitle(String title) {
+    private void addTitle(String title) {
       this.collection.put(title, true);
     }
 
@@ -33,7 +44,7 @@ public class Library extends Building {
      * @param title
      * @return title
      */
-    public String removeTitle(String title) {
+    private String removeTitle(String title) {
       this.collection.remove(title, false);
       return title;
     }
@@ -98,19 +109,23 @@ public class Library extends Building {
 
     } // prints out the entire collection in an easy-to-read way (including checkout status)
 
+    public void showOptions() {
+      System.out.println("Available options at " + this.name + ":\n + enter() \n + exit() \n + goUp() \n + goDown()\n + goToFloor(n) \n + checkOut() \n + returnBook() \n + printCollection() \n + containsTitle() \n + isAvailable()");
+  }
 
     /**
      * Tester for the library class
      * @param args
      */
     public static void main(String[] args) {
-      Library ford = new Library("ford", "NoHo", 4);
-      ford.addTitle("Little Mermaid");
-      ford.checkOut("Little Mermaid");
-      ford.checkOut("Little Mermaid");
-      ford.returnBook("Red Balloon");
-      System.out.println("T/F Book Available: " + ford.isAvailable("Little Mermaid"));
-      ford.addTitle("It");
-      ford.printCollection();
+      Library Forbes = new Library("Forbes", "NoHo", 4, true);
+      Forbes.addTitle("Little Mermaid");
+      Forbes.checkOut("Little Mermaid");
+      Forbes.checkOut("Little Mermaid");
+      Forbes.returnBook("Red Balloon");
+      System.out.println("T/F Book Available: " + Forbes.isAvailable("Little Mermaid"));
+      Forbes.addTitle("It");
+      Forbes.printCollection();
+      Forbes.showOptions();
     }
   }

@@ -33,7 +33,7 @@ public class Cafe extends Building {
      * @param nSugarPackets
      * @param nCreams
      */
-    public void sellCoffee(int size, int nSugarPackets, int nCreams) {
+    private void sellCoffee(int size, int nSugarPackets, int nCreams) {
         if (this.nCoffeeOunces > 0 && this.nSugarPackets > 0 && this.nCreams > 0 && this.nCups > 0) {
             this.nCoffeeOunces -= size;
             this.nSugarPackets -= nSugarPackets;
@@ -72,6 +72,16 @@ public class Cafe extends Building {
     }
 
     /**
+     * Show methods for users of cafe
+     */
+    public void showOptions() {
+        System.out.println("Available options at " + this.name + ":\n + enter() \n + exit()");
+    }
+
+    public void goToFloor(int floorNum) { 
+        throw new RuntimeException("This cafe only has one accessible floor!");
+    }
+    /**
      * Tester for the cafe class methods
      * @param args
      */
@@ -84,6 +94,8 @@ public class Cafe extends Building {
         Woodstar.sellCoffee(10,12, 2);
         System.out.println("Ounces of coffee left:" + Woodstar.nCoffeeOunces);
         System.out.println("Sugar remaining:" + Woodstar.nSugarPackets);
+        Woodstar.goToFloor(6);
+        Woodstar.showOptions();
     }
     
 }

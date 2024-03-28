@@ -9,6 +9,7 @@ import javax.management.RuntimeErrorException;
 public class House extends Building {
     private ArrayList<String> residents; 
     private boolean hasDiningRoom;
+    private boolean hasElevator;
 
   /**
    * The constructor for the house class
@@ -16,11 +17,13 @@ public class House extends Building {
    * @param address
    * @param nFloors
    * @param hasDiningRoom
+   * @param hasElevator
    */
-  public House(String name, String address, int nFloors, boolean hasDiningRoom) {
+  public House(String name, String address, int nFloors, boolean hasDiningRoom, boolean hasElevator) {
     super(name, address, nFloors);
     this.residents = new ArrayList<String>();
     this.hasDiningRoom = hasDiningRoom;
+    this.hasElevator = hasElevator;
     System.out.println("You have built a house: 🏠");
   }
 
@@ -31,12 +34,20 @@ public class House extends Building {
   public boolean hasDiningRoom() {
     return this.hasDiningRoom;
   }
+
+  /**
+   * Getter for hasElevator
+   * @return if the house has elevator (T/F)
+   */
+  public boolean hasElevator() {
+    return this.hasElevator;
+  }
   
   /**
    * Getter for nResidents
    * @return the size of the residents ArrayList (Number of residents)
    */
-  public int nResidents() {
+  private int nResidents() {
     return this.residents.size();
   }
 
@@ -74,7 +85,7 @@ public class House extends Building {
    * @param person
    * @return boolean
    */
-  public boolean isResident(String person) {
+  private boolean isResident(String person) {
     if (this.residents.contains(person)) {
       return true;
     }
@@ -82,13 +93,17 @@ public class House extends Building {
       return false;
     }
   }
+
+  public void showOptions() {
+    System.out.println("Available options at " + this.name + ":\n + enter() \n + exit() \n + goUp() \n + goDown()\n + goToFloor(n) \n + moveIn() \n + moveOut()");
+}
   
   /**
    * Tester for the house class methods.
    * @param args
    */
   public static void main(String[] args) {
-    House Albright = new House("Albright", "Bedford Terrace", 4, true);
+    House Albright = new House("Albright", "Bedford Terrace", 4, true, false);
     Albright.moveIn("Maura");
     Albright.moveIn("Nina");
     Albright.moveIn("Nina");
@@ -97,6 +112,7 @@ public class House extends Building {
     System.out.println("T/F is a resident: " + Albright.isResident("Maura"));
     System.out.println("T/F is a resident: " + Albright.isResident("Sara"));
     System.out.println("Number of residents: " + Albright.nResidents());
+    Albright.showOptions();
   }
 
 }
