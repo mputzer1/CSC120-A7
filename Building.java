@@ -66,7 +66,7 @@ public class Building {
         return null; // We're outside now, so the building is null
     }
 
-    public void goToFloor(int floorNum) {
+    public void goToFloor(int floorNum) { //Modify this or override in child class b/c teleporting doesn't work
         if (this.activeFloor == -1) {
             throw new RuntimeException("You are not inside this Building. Must call enter() before navigating between floors.");
         }
