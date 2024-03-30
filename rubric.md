@@ -14,13 +14,13 @@ Yes 1 pt: The `House`, `Library`, and `Cafe` classes all `extend` the modified `
 
 ### Level 1: Method `Overrides` (4 pts)
 
-_____ 1 pt: The `House`, `Library`, and `Cafe` classes all override the `showOptions()` method to include their additional interactive methods
+Yes 1 pt: The `House`, `Library`, and `Cafe` classes all override the `showOptions()` method to include their additional interactive methods
 
-_____ 1 pt: The `Library` class has a `goToFloor(...)` method that allows movement between non-adjacent floors
+Yes 1 pt: The `Library` class has a `goToFloor(...)` method that allows movement between non-adjacent floors
 
-_____ 1 pt: The `House` class has a `goToFloor(...)` method that allows movement between non-adjacent floors only if an elevator is present
+Yes 1 pt: The `House` class has a `goToFloor(...)` method that allows movement between non-adjacent floors only if an elevator is present
 
-_____ 1 pt: The `Cafe` class has a `goToFloor(...)` method that doesn't permit movement off the first floor (we assume that any additional floors are for storage / accessible only to employees)
+Yes 1 pt: The `Cafe` class has a `goToFloor(...)` method that doesn't permit movement off the first floor (we assume that any additional floors are for storage / accessible only to employees)
 
 ### Level 2: Method `Overloads` (3 pts)
 

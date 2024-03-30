@@ -21,7 +21,30 @@ public class Library extends Building {
       super(name, address, nFloors);
       this.collection = new Hashtable<String, Boolean>();
       this.hasElevator = hasElevator;
-      System.out.println("You have built a library: 📖");
+      //System.out.println("You have built a library: 📖");
+    }
+
+    /**
+     * Constructor for the library class where the hasElevator attribute is true
+     * @param name
+     * @param address
+     * @param nFloors
+     */
+    public Library(String name, String address, int nFloors) {
+      super(name, address, nFloors);
+      this.collection = new Hashtable<String, Boolean>();
+      this.hasElevator = true;
+      //System.out.println("You have built a library: 📖");
+    }
+
+    /**
+     * Constructor for the library class with preset params
+     */
+    public Library() {
+      super();
+      this.collection = new Hashtable<String, Boolean>();
+      this.hasElevator = false;
+      //System.out.println("You have built a library: 📖");
     }
   
     /**

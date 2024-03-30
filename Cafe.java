@@ -24,9 +24,25 @@ public class Cafe extends Building {
         this.nSugarPackets = nSugarPackets;
         this.nCreams = nCreams;
         this.nCups = nCups;
-        System.out.println("You have built a cafe: ☕");
+        //System.out.println("You have built a cafe: ☕");
     }
-    
+
+    /**
+     * Constructor for the Cafe class with preset params for cafe contents
+     * @param name
+     * @param address
+     * @param nFloors
+     */
+    public Cafe(String name, String address, int nFloors) {
+        super(name, address, nFloors);
+        this.nCoffeeOunces = 100;
+        this.nSugarPackets = 100;
+        this.nCreams = 100;
+        this.nCups = 100;
+        //System.out.println("You have built a cafe: ☕");
+    }
+
+
     /**
      * Reduces the number of supplies in the cafe when coffee is sold. If no supplies are left, it calls the restock method.
      * @param size
@@ -34,6 +50,28 @@ public class Cafe extends Building {
      * @param nCreams
      */
     private void sellCoffee(int size, int nSugarPackets, int nCreams) {
+        if (this.nCoffeeOunces > 0 && this.nSugarPackets > 0 && this.nCreams > 0 && this.nCups > 0) {
+            this.nCoffeeOunces -= size;
+            this.nSugarPackets -= nSugarPackets;
+            this.nCreams -= nCreams;
+            this.nCups -= 1;
+        }
+        else {
+            restock(size, nSugarPackets, nCreams, 1);
+            this.nCoffeeOunces -= size;
+            this.nSugarPackets -= nSugarPackets;
+            this.nCreams -= nCreams;
+            this.nCups -= 1;
+        }
+    }
+
+    /**
+     * Preset params for sellCoffee.
+     */
+    private void sellCoffee() {
+        int size = 10;
+        int nSugarPackets = 1;
+        int nCreams = 1;
         if (this.nCoffeeOunces > 0 && this.nSugarPackets > 0 && this.nCreams > 0 && this.nCups > 0) {
             this.nCoffeeOunces -= size;
             this.nSugarPackets -= nSugarPackets;
@@ -94,8 +132,10 @@ public class Cafe extends Building {
         Woodstar.sellCoffee(10,12, 2);
         System.out.println("Ounces of coffee left:" + Woodstar.nCoffeeOunces);
         System.out.println("Sugar remaining:" + Woodstar.nSugarPackets);
-        Woodstar.goToFloor(6);
+        //Woodstar.goToFloor(6);
         Woodstar.showOptions();
+        Woodstar.sellCoffee();
+        System.out.println("Ounces of coffee left:" + Woodstar.nCoffeeOunces);
     }
     
 }

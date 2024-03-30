@@ -1,6 +1,5 @@
 /* This is a stub for the House class */
 import java.util.ArrayList;
-
 import javax.management.RuntimeErrorException;
 
 /**
@@ -12,7 +11,7 @@ public class House extends Building {
     private boolean hasElevator;
 
   /**
-   * The constructor for the house class
+   * The constructor for the house class that allows user to input following params
    * @param name
    * @param address
    * @param nFloors
@@ -24,8 +23,32 @@ public class House extends Building {
     this.residents = new ArrayList<String>();
     this.hasDiningRoom = hasDiningRoom;
     this.hasElevator = hasElevator;
-    System.out.println("You have built a house: 🏠");
+    //System.out.println("You have built a house: 🏠");
   }
+
+  /**
+   * The constructor for the house class that allows user to input following params
+   * @param name
+   * @param address
+   * @param nFloors
+   */
+  public House(String name, String address, int nFloors) {
+    super(name,address,nFloors);
+    this.residents = new ArrayList<String>();
+    this.hasDiningRoom = true;
+    this.hasElevator = false;
+  }
+
+    /**
+   * The constructor for the house class with default all params
+   */
+  public House() {
+    super();
+    this.residents = new ArrayList<String>();
+    this.hasDiningRoom = false;
+    this.hasElevator = false;
+  }
+
 
   /**
    * Getter for hasDiningRoom
@@ -127,6 +150,8 @@ public class House extends Building {
     System.out.println("T/F is a resident: " + Albright.isResident("Sara"));
     System.out.println("Number of residents: " + Albright.nResidents());
     Albright.showOptions();
+    House Default = new House();
+    System.out.println(Default.getAddress());
   }
 
 }
