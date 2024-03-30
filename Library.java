@@ -1,6 +1,7 @@
 /* This is a stub for the Library class */
 
 import java.util.Hashtable;
+import java.lang.Math;
 
 /**
  * Creates the library class which extends the building class and adds the attribute hashtable collection (for books in library).
@@ -109,16 +110,32 @@ public class Library extends Building {
 
     } // prints out the entire collection in an easy-to-read way (including checkout status)
 
+    
+    public void goToFloor(int floorNum) { //Modify this or override in child class b/c teleporting doesn't work
+      if (this.activeFloor == -1) {
+        throw new RuntimeException("You are not inside this Building. Must call enter() before navigating between floors.");
+      }
+      if (floorNum < 1 || floorNum > this.nFloors) {
+        throw new RuntimeException("Invalid floor number. Valid range for this Building is 1-" + this.nFloors +".");
+      }
+      if (this.hasElevator() == false && Math.abs(this.activeFloor - floorNum) > 1) {
+        throw new RuntimeException("There is no elevator! You can only use the goUp() or goDown methods to change by more than 1 floor!");
+      } 
+      System.out.println("You are now on floor #" + floorNum + " of " + this.name);
+      this.activeFloor = floorNum;
+    }
+    
+    
     public void showOptions() {
       System.out.println("Available options at " + this.name + ":\n + enter() \n + exit() \n + goUp() \n + goDown()\n + goToFloor(n) \n + checkOut() \n + returnBook() \n + printCollection() \n + containsTitle() \n + isAvailable()");
-  }
+    }
 
     /**
      * Tester for the library class
      * @param args
      */
     public static void main(String[] args) {
-      Library Forbes = new Library("Forbes", "NoHo", 4, true);
+      Library Forbes = new Library("Forbes", "NoHo", 4, false);
       Forbes.addTitle("Little Mermaid");
       Forbes.checkOut("Little Mermaid");
       Forbes.checkOut("Little Mermaid");
@@ -126,6 +143,8 @@ public class Library extends Building {
       System.out.println("T/F Book Available: " + Forbes.isAvailable("Little Mermaid"));
       Forbes.addTitle("It");
       Forbes.printCollection();
-      Forbes.showOptions();
+      Forbes.enter();
+      Forbes.goToFloor(3);
+      //Forbes.showOptions();
     }
   }

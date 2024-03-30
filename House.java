@@ -94,9 +94,23 @@ public class House extends Building {
     }
   }
 
+  public void goToFloor(int floorNum) { //Modify this or override in child class b/c teleporting doesn't work
+    if (this.activeFloor == -1) {
+      throw new RuntimeException("You are not inside this Building. Must call enter() before navigating between floors.");
+    }
+    if (floorNum < 1 || floorNum > this.nFloors) {
+      throw new RuntimeException("Invalid floor number. Valid range for this Building is 1-" + this.nFloors +".");
+    }
+    if (this.hasElevator() == false && Math.abs(this.activeFloor - floorNum) > 1) {
+      throw new RuntimeException("There is no elevator! You can only use the goUp() or goDown methods to change by more than 1 floor!");
+    } 
+    System.out.println("You are now on floor #" + floorNum + " of " + this.name);
+    this.activeFloor = floorNum;
+  }
+  
   public void showOptions() {
     System.out.println("Available options at " + this.name + ":\n + enter() \n + exit() \n + goUp() \n + goDown()\n + goToFloor(n) \n + moveIn() \n + moveOut()");
-}
+  }
   
   /**
    * Tester for the house class methods.
