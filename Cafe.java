@@ -118,7 +118,7 @@ public class Cafe extends Building {
 
     /**
      * Keeps user from changing floors in the cafe
-     * @param floorNum
+     * @param floorNum floor number to move to
      */
     public void goToFloor(int floorNum) { 
         throw new RuntimeException("This cafe only has one accessible floor!");

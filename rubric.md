@@ -48,7 +48,7 @@ _____ 2 pt: Complies with style guidelines (missing items 1 pt each):
 
       _____ Classes & class members all have Javadoc header comments
 
-      _____ Clear and consistent indentation of bracketed sections
+      Yes Clear and consistent indentation of bracketed sections
 
       _____ Adheres to Java conventions on naming & capitalization
 
@@ -58,4 +58,4 @@ _____ 2 pt: Complies with style guidelines (missing items 1 pt each):
 
 _____ 1 pt: All required files included with submission (including completed `rubric.md` file)
 
-_____ 1 pt: `reflection.md` contains your reflection on the assignment
+Yes 1 pt: `reflection.md` contains your reflection on the assignment

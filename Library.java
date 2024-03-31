@@ -49,7 +49,7 @@ public class Library extends Building {
   
     /**
     * Getter for hasElevator
-    * @return if the house has elevator (T/F)
+    * @return boolean for if the house has elevator (T/F)
     */
     public boolean hasElevator() {
       return this.hasElevator;
@@ -57,7 +57,7 @@ public class Library extends Building {
     
     /**
      * Adds book title to the book collection
-     * @param title
+     * @param title of book to be added
      */
     private void addTitle(String title) {
       this.collection.put(title, true);
@@ -65,8 +65,8 @@ public class Library extends Building {
 
     /**
      * Removes book title from the book collection
-     * @param title
-     * @return title
+     * @param title of book to be removed
+     * @return title of book removed
      */
     private String removeTitle(String title) {
       this.collection.remove(title, false);
@@ -75,7 +75,7 @@ public class Library extends Building {
     
     /**
      * Checks out book from the library
-     * @param title
+     * @param title of book checked out
      */
     public void checkOut(String title) {
       if (containsTitle(title) == true && isAvailable(title) == true) {
@@ -88,7 +88,7 @@ public class Library extends Building {
     
     /**
      * Returns book to the library
-     * @param title
+     * @param title of book returned
      */
     public void returnBook(String title) {
       if (containsTitle(title) == true) {
@@ -101,7 +101,7 @@ public class Library extends Building {
     
     /**
      * Checks if library collection contains a certain book
-     * @param title
+     * @param title of book that might be contained in library
      * @return boolean(whether library contains book)
      */
     public boolean containsTitle(String title) {
@@ -114,7 +114,7 @@ public class Library extends Building {
     
     /**
      * Checks if library book is available to be checked out
-     * @param title
+     * @param title of book that might be available in library
      * @return boolean(whether library book is available to be checked out)
      */
     public boolean isAvailable(String title) {
@@ -133,9 +133,10 @@ public class Library extends Building {
 
     } // prints out the entire collection in an easy-to-read way (including checkout status)
 
+
     /**
     * Allows the user to move floors based on presence or lack of elevator an floor picked
-    * @param floorNum
+    * @param floorNum floor number to move to
     */  
     public void goToFloor(int floorNum) { //Modify this or override in child class b/c teleporting doesn't work
       if (this.activeFloor == -1) {

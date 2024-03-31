@@ -77,7 +77,7 @@ public class House extends Building {
 
   /**
    * Adds new resident to ArrayList residents
-   * @param name
+   * @param name name of new resident
    */
   public void moveIn(String name) {
     if (isResident(name) == false) {
@@ -90,8 +90,8 @@ public class House extends Building {
 
   /**
    * Removes resident from ArrayList resident
-   * @param name
-   * @return name
+   * @param name name of resident
+   * @return name of removed resident
    */
   public String moveOut(String name) {
     if (isResident(name) == true) {
@@ -106,8 +106,8 @@ public class House extends Building {
   
   /**
    * Determines if someone is a resident of the house
-   * @param person
-   * @return boolean
+   * @param person name of potential resident of the house
+   * @return boolean for if the person lives in the house
    */
   private boolean isResident(String person) {
     if (this.residents.contains(person)) {
@@ -120,7 +120,7 @@ public class House extends Building {
 
   /**
    * Allows the user to move floors based on presence or lack of elevator an floor picked
-   * @param floorNum
+   * @param floorNum floor number to move to
    */
   public void goToFloor(int floorNum) { //Modify this or override in child class b/c teleporting doesn't work
     if (this.activeFloor == -1) {
