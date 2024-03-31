@@ -133,7 +133,10 @@ public class Library extends Building {
 
     } // prints out the entire collection in an easy-to-read way (including checkout status)
 
-    
+    /**
+    * Allows the user to move floors based on presence or lack of elevator an floor picked
+    * @param floorNum
+    */  
     public void goToFloor(int floorNum) { //Modify this or override in child class b/c teleporting doesn't work
       if (this.activeFloor == -1) {
         throw new RuntimeException("You are not inside this Building. Must call enter() before navigating between floors.");
@@ -148,7 +151,9 @@ public class Library extends Building {
       this.activeFloor = floorNum;
     }
     
-    
+    /**
+     * Prints available methods for this class
+     */
     public void showOptions() {
       System.out.println("Available options at " + this.name + ":\n + enter() \n + exit() \n + goUp() \n + goDown()\n + goToFloor(n) \n + checkOut() \n + returnBook() \n + printCollection() \n + containsTitle() \n + isAvailable()");
     }

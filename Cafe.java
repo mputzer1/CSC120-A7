@@ -110,15 +110,20 @@ public class Cafe extends Building {
     }
 
     /**
-     * Show methods for users of cafe
+     * Prints available methods for this class
      */
     public void showOptions() {
         System.out.println("Available options at " + this.name + ":\n + enter() \n + exit()");
     }
 
+    /**
+     * Keeps user from changing floors in the cafe
+     * @param floorNum
+     */
     public void goToFloor(int floorNum) { 
         throw new RuntimeException("This cafe only has one accessible floor!");
     }
+    
     /**
      * Tester for the cafe class methods
      * @param args

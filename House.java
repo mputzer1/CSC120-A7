@@ -1,6 +1,7 @@
 /* This is a stub for the House class */
 import java.util.ArrayList;
 import javax.management.RuntimeErrorException;
+import java.lang.Math;
 
 /**
  * The house class that extends the building class and adds the attributes residents and hasDiningRoom.
@@ -45,14 +46,14 @@ public class House extends Building {
   public House() {
     super();
     this.residents = new ArrayList<String>();
-    this.hasDiningRoom = false;
+    this.hasDiningRoom = true;
     this.hasElevator = false;
   }
 
 
   /**
    * Getter for hasDiningRoom
-   * @return if the house has a dining room (T/F)
+   * @return boolean for if the house has a dining room
    */
   public boolean hasDiningRoom() {
     return this.hasDiningRoom;
@@ -60,7 +61,7 @@ public class House extends Building {
 
   /**
    * Getter for hasElevator
-   * @return if the house has elevator (T/F)
+   * @return boolean for if the house has elevator
    */
   public boolean hasElevator() {
     return this.hasElevator;
@@ -117,6 +118,10 @@ public class House extends Building {
     }
   }
 
+  /**
+   * Allows the user to move floors based on presence or lack of elevator an floor picked
+   * @param floorNum
+   */
   public void goToFloor(int floorNum) { //Modify this or override in child class b/c teleporting doesn't work
     if (this.activeFloor == -1) {
       throw new RuntimeException("You are not inside this Building. Must call enter() before navigating between floors.");
@@ -131,6 +136,9 @@ public class House extends Building {
     this.activeFloor = floorNum;
   }
   
+  /**
+    * Prints available methods for this class
+    */
   public void showOptions() {
     System.out.println("Available options at " + this.name + ":\n + enter() \n + exit() \n + goUp() \n + goDown()\n + goToFloor(n) \n + moveIn() \n + moveOut()");
   }
