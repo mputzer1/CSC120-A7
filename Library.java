@@ -1,6 +1,8 @@
 /* This is a stub for the Library class */
 
+import java.util.ArrayList;
 import java.util.Hashtable;
+import java.util.Scanner;
 import java.lang.Math;
 
 /**
@@ -21,7 +23,6 @@ public class Library extends Building {
       super(name, address, nFloors);
       this.collection = new Hashtable<String, Boolean>();
       this.hasElevator = hasElevator;
-      //System.out.println("You have built a library: 📖");
     }
 
     /**
@@ -34,7 +35,6 @@ public class Library extends Building {
       super(name, address, nFloors);
       this.collection = new Hashtable<String, Boolean>();
       this.hasElevator = true;
-      //System.out.println("You have built a library: 📖");
     }
 
     /**
@@ -44,7 +44,6 @@ public class Library extends Building {
       super();
       this.collection = new Hashtable<String, Boolean>();
       this.hasElevator = false;
-      //System.out.println("You have built a library: 📖");
     }
   
     /**
@@ -59,8 +58,27 @@ public class Library extends Building {
      * Adds book title to the book collection
      * @param title of book to be added
      */
-    private void addTitle(String title) {
+    private void addTitle(String title) { //Make way for people to checkout multiple books
       this.collection.put(title, true);
+    }
+
+
+    /**
+     * Adds several book titles to the collection
+     * @param nTitles number of books to be added
+     */
+    private void addTitle(int nTitles) {
+      int roundsCounter = 0;
+      Scanner myObj = new Scanner(System.in);
+      ArrayList <String> titlesArrayList = new ArrayList<String>();
+      while (nTitles > roundsCounter) {
+        System.out.println("Give me a title to add:");
+        String title = myObj.nextLine();
+        titlesArrayList.add(title);
+        this.collection.put(title, true);
+        roundsCounter += 1;
+      }
+      myObj.close();
     }
 
     /**
@@ -130,8 +148,7 @@ public class Library extends Building {
      */
     public void printCollection() {
       System.out.println("\nLibrary Book Collection:" + "\n" + this.collection);
-
-    } // prints out the entire collection in an easy-to-read way (including checkout status)
+    } 
 
 
     /**
@@ -173,7 +190,10 @@ public class Library extends Building {
       Forbes.addTitle("It");
       Forbes.printCollection();
       Forbes.enter();
-      Forbes.goToFloor(3);
+      //Forbes.goToFloor(3);
+      Library Default = new Library();
+      System.out.println(Default);
+      Forbes.addTitle(10);
       //Forbes.showOptions();
     }
   }

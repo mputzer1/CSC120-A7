@@ -2,6 +2,7 @@
 import java.util.ArrayList;
 import javax.management.RuntimeErrorException;
 import java.lang.Math;
+import java.util.Scanner;
 
 /**
  * The house class that extends the building class and adds the attributes residents and hasDiningRoom.
@@ -24,7 +25,6 @@ public class House extends Building {
     this.residents = new ArrayList<String>();
     this.hasDiningRoom = hasDiningRoom;
     this.hasElevator = hasElevator;
-    //System.out.println("You have built a house: 🏠");
   }
 
   /**
@@ -79,13 +79,36 @@ public class House extends Building {
    * Adds new resident to ArrayList residents
    * @param name name of new resident
    */
-  public void moveIn(String name) {
+  public void moveIn(String name) {//Make a way to move in many ppl at once
     if (isResident(name) == false) {
       this.residents.add(name);
     }
     else {
       System.out.println(name + " already lives here!");
     }
+  }
+
+  /**
+   * Adds multiple new residents to ArrayList residents at once
+   * @param nPeople number of people being moved in
+   */
+  public void moveIn(int nPeople) {
+    int roundsCounter = 0;
+    Scanner myObj = new Scanner(System.in);
+    ArrayList <String> names = new ArrayList<String>();
+    while (nPeople > roundsCounter) {
+      System.out.println("Give me a name to move in:");
+      String name = myObj.nextLine();
+      names.add(name);
+      if (isResident(name) == false) {
+        this.residents.add(name);
+      }
+      else {
+        System.out.println(name + " already lives here!");
+      }
+      roundsCounter += 1;
+    }
+    myObj.close();
   }
 
   /**
@@ -160,6 +183,7 @@ public class House extends Building {
     Albright.showOptions();
     House Default = new House();
     System.out.println(Default.getAddress());
+    Albright.moveIn(2);
   }
 
 }
