@@ -29,8 +29,8 @@ public class Cafe extends Building {
     /**
      * Constructor for the Cafe class with preset params for cafe contents
      * @param name
-     * @param address
-     * @param nFloors
+     * @param address 
+     * @param nFloors 
      */
     public Cafe(String name, String address, int nFloors) {
         super(name, address, nFloors);
@@ -43,9 +43,9 @@ public class Cafe extends Building {
 
     /**
      * Reduces the number of supplies in the cafe when coffee is sold. If no supplies are left, it calls the restock method.
-     * @param size
-     * @param nSugarPackets
-     * @param nCreams
+     * @param size ounces of coffee
+     * @param nSugarPackets number of sugar packets in coffee
+     * @param nCreams number of creams in coffee
      */
     private void sellCoffee(int size, int nSugarPackets, int nCreams) {
         if (this.nCoffeeOunces > 0 && this.nSugarPackets > 0 && this.nCreams > 0 && this.nCups > 0) {
@@ -64,7 +64,7 @@ public class Cafe extends Building {
     }
 
     /**
-     * Preset params for sellCoffee.
+     * sells coffee with preset size, sugar packets, and creams.
      */
     private void sellCoffee() {
         int size = 10;
@@ -87,10 +87,10 @@ public class Cafe extends Building {
 
     /**
      * Restocks the supplies in the cafe when supplies hit 0. 
-     * @param nCoffeeOunces
-     * @param nSugarPackets
-     * @param nCreams
-     * @param nCups
+     * @param nCoffeeOunces number of coffee ounces to restock
+     * @param nSugarPackets number of sugar packets to restock
+     * @param nCreams number of creams to restock
+     * @param nCups number of cups to restock
      */
     private void restock(int nCoffeeOunces, int nSugarPackets, int nCreams, int nCups) {
         if (this.nCoffeeOunces == 0) {
@@ -108,7 +108,7 @@ public class Cafe extends Building {
     }
 
     /**
-     * Prints available methods for this class
+     * Prints available methods for the cafe class
      */
     public void showOptions() {
         System.out.println("Available options at " + this.name + ":\n + enter() \n + exit()");

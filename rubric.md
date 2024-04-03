@@ -44,18 +44,18 @@ Yes 4 pts: Programs compile without errors or warnings
 
 Yes 2 pts: Executes fully & consistently without crashing (exception/freeze)
 
-_____ 2 pt: Complies with style guidelines (missing items 1 pt each):
+Yes 2 pt: Complies with style guidelines (missing items 1 pt each):
 
-      _____ Classes & class members all have Javadoc header comments
+      Yes Classes & class members all have Javadoc header comments
 
       Yes Clear and consistent indentation of bracketed sections
 
-      _____ Adheres to Java conventions on naming & capitalization
+      Yes Adheres to Java conventions on naming & capitalization
 
-      _____ Methods & variables all have clear and accurate names
+      Yes Methods & variables all have clear and accurate names
 
       Yes Methods avoid confusing side effects
 
-_____ 1 pt: All required files included with submission (including completed `rubric.md` file)
+Yes 1 pt: All required files included with submission (including completed `rubric.md` file)
 
 Yes 1 pt: `reflection.md` contains your reflection on the assignment

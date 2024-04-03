@@ -27,7 +27,7 @@ public class Library extends Building {
 
     /**
      * Constructor for the library class where the hasElevator attribute is true
-     * @param name
+     * @param name 
      * @param address
      * @param nFloors
      */
@@ -56,7 +56,7 @@ public class Library extends Building {
     
     /**
      * Adds book title to the book collection
-     * @param title of book to be added
+     * @param title title of book to be added
      */
     private void addTitle(String title) { //Make way for people to checkout multiple books
       this.collection.put(title, true);
@@ -93,7 +93,7 @@ public class Library extends Building {
     
     /**
      * Checks out book from the library
-     * @param title of book checked out
+     * @param title title of book checked out
      */
     public void checkOut(String title) {
       if (containsTitle(title) == true && isAvailable(title) == true) {
@@ -106,7 +106,7 @@ public class Library extends Building {
     
     /**
      * Returns book to the library
-     * @param title of book returned
+     * @param title title of book returned
      */
     public void returnBook(String title) {
       if (containsTitle(title) == true) {
@@ -119,7 +119,7 @@ public class Library extends Building {
     
     /**
      * Checks if library collection contains a certain book
-     * @param title of book that might be contained in library
+     * @param title title of book that might be contained in library
      * @return boolean(whether library contains book)
      */
     public boolean containsTitle(String title) {
@@ -132,7 +132,7 @@ public class Library extends Building {
     
     /**
      * Checks if library book is available to be checked out
-     * @param title of book that might be available in library
+     * @param title title of book that might be available in library
      * @return boolean(whether library book is available to be checked out)
      */
     public boolean isAvailable(String title) {
